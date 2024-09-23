@@ -1,16 +1,18 @@
 using System.Collections.Generic;
 using UnityEngine;
-using Zenject;
 
-public class Menu : MonoBehaviour
+public class Menu : Widgets
 {
-    [Inject] EventBus EventBus;
+    [Header("Widget Settings")]
     [SerializeField] List<GameButton> GameButtons;
-    [SerializeField] GameObject BackGround;
+    [SerializeField] GameObject Predications;
 
     void Start()
     {
-        EventBus.Signal += SignalBox;
+        Predications.SetActive(PlayerPrefs.GetString("PredicateTutorial") == "Y");
+
+        Subscribe();
+
         foreach (var item in GameButtons)
         {
             item.Refresh();
@@ -25,25 +27,26 @@ public class Menu : MonoBehaviour
         }        
     }
 
-    void SignalBox(object Obj)
+    public void ShowPredicate()
     {
-        if(Obj.GetType() == typeof(StartGameSignal))
-        {
-            BackGround.SetActive(false);
-        }
+        EventBus.Invoke(new TutorialSignal("PredicateTutorial"));
+        Predications.SetActive(true);
+    }
+
+    protected override void SignalBox(object Obj)
+    {
         switch (Obj)
         {
-            case "Refresh" :
+            case StartGameSignal :
+                Enable(false);
+                break;
+            case EnumSignals.Refresh :
                 Refresh();
                 break;
-            case "OpenMenu" :
-                BackGround.SetActive(true);
+            case EnumSignals.OpenMenu :
+                Enable(true);
                 break;
             default: break;
         }
-    }
-    void OnDestroy()
-    {
-        EventBus.Signal -= SignalBox;
     }
 }

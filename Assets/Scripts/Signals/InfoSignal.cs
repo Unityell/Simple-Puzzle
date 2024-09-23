@@ -1,8 +1,8 @@
 public class InfoSignal
 {
-    readonly public string Header;
-    readonly public string Info;
-    readonly public GameButton Button;
+    public readonly string Header;
+    public readonly string Info;
+    public readonly GameButton Button;
 
     public InfoSignal(string Header, string Info, GameButton Button)
     {

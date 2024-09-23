@@ -1,49 +1,62 @@
 using UnityEngine;
 using UnityEngine.UI;
-using YG;
-using Zenject;
 
 public class InMouse : MonoBehaviour
 {
-    [Inject] EventBus EventBus;
     [HideInInspector] public Image Icon;
     [HideInInspector] public Socket Socket;
+
     void Start()
     {
         Icon = GetComponent<Image>();
+        Clear();
     }
-    public void SetItemToMouse(Sprite Icon, Socket Socket)
+
+    public void SetItemToMouse(Sprite icon, Socket socket)
     {
+        Move();
         this.Icon.enabled = true;
-        this.Icon.sprite = Icon;
-        this.Socket = Socket;
+        this.Icon.sprite = icon;
+        this.Socket = socket;
     }
+
     public void Clear()
     {
         this.Icon.enabled = false;
         Icon.sprite = null;
         Socket = null;
     }
+    
     public void ReturnItemToSocket()
     {
-        Socket.SetItemToSocket(Icon.sprite);
-        Clear();
+        if (Socket != null)
+        {
+            Socket.SetItemToSocket(Icon.sprite);
+            Clear();
+        }
     }
+
     void LateUpdate()
     {
-        if(Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0))
         {
-            if(Icon.sprite != null)
+            if (Icon.sprite != null)
             {
                 ReturnItemToSocket();
             }
         }             
     }
-    void Update()
+
+    void Move()
     {
         Vector3 mousePosition = Input.mousePosition;
         mousePosition.z = -Camera.main.transform.position.z; 
         Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
-        transform.position = worldPosition;
+        transform.position = worldPosition;        
+    }
+
+    void Update()
+    {
+        if (Icon.enabled) Move();
     }
 }

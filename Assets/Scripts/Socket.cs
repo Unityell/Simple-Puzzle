@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using System.Collections;
 using YG;
 
 public class Socket : MonoBehaviour
@@ -13,9 +14,16 @@ public class Socket : MonoBehaviour
     bool IsEnter;
     float Timer = 0.1f;
 
+    bool isEffectActive = false;
+
     void Awake()
     {
         Icon = GetComponent<Image>();
+    }
+
+    public void Enable(bool Switch)
+    {
+        Icon.raycastTarget = Switch;
     }
 
     public void CheckMousePos(bool Switch)
@@ -32,21 +40,30 @@ public class Socket : MonoBehaviour
     {
         this.Icon.color = Color.white;
         this.Icon.sprite = Icon;
+        Enable(true);
     }
 
-    public void SetItemToSocket(Sprite Icon)
+    public void SetItemToSocket(Sprite newIcon)
     {
-        if(this.Icon.sprite == null)
+        if (this.Icon.sprite == null)
         {
             this.Icon.color = Color.white;
-            this.Icon.sprite = Icon;
-            EventBus.Invoke("Check");
+            this.Icon.sprite = newIcon;
+            EventBus.Invoke(EnumSignals.Check);
             AudioManager.PlaySound("SoftClick", null);
             InMouse.Clear(); 
+            StartEffect(Color.cyan, 1.1f, 0.5f);
         }
         else
         {
-            InMouse.ReturnItemToSocket();              
+            StartEffect(Color.cyan, 1.1f, 0.5f);
+            if(InMouse.Icon.sprite == null)
+            {
+                this.Icon.sprite = newIcon;  
+                EventBus.Invoke(EnumSignals.Check);
+                AudioManager.PlaySound("SoftClick", null);          
+            }
+            else InMouse.ReturnItemToSocket(); 
         }
     }
 
@@ -62,17 +79,17 @@ public class Socket : MonoBehaviour
     {
         Icon.sprite = null;
         Icon.color = new Color(1, 1, 1, 0);      
+        Icon.transform.localScale = Vector3.one;
     }
 
     void Update()
     {
-
-        if(!YandexGame.EnvironmentData.isDesktop)
+        if (!YandexGame.EnvironmentData.isDesktop)
         {
-            if(Input.touchCount <= 0)
+            if (Input.touchCount <= 0)
             {
                 Timer -= Time.deltaTime;
-                if(Timer <= 0)
+                if (Timer <= 0)
                 {
                     IsEnter = false;
                 }
@@ -83,36 +100,65 @@ public class Socket : MonoBehaviour
             }       
         }
 
-        if(IsEnter)
+        if (IsEnter)
         {
-            if(Input.GetMouseButtonUp(0))
+            if (Input.GetMouseButtonDown(0))
             {
-                if(InMouse.Icon.sprite != null)
+                if (Icon.sprite != null && InMouse.Icon.sprite == null)
                 {
-                    if(Icon.sprite == null)
+                    SeItemToMouse();
+                }         
+            }  
+
+            if (Input.GetMouseButtonUp(0))
+            {
+                if (InMouse.Icon.sprite != null)
+                {
+                    if (Icon.sprite == null)
                     {
                         SetItemToSocket(InMouse.Icon.sprite);
                         InMouse.Clear();                        
                     }
                     else
                     {
-                        var Sprite = Icon.sprite;
+                        var oldSprite = Icon.sprite;
                         Icon.sprite = InMouse.Icon.sprite;
-                        EventBus.Invoke("Check");
+                        EventBus.Invoke(EnumSignals.Check);
                         AudioManager.PlaySound("SoftClick", null);
-                        InMouse.Icon.sprite = Sprite;
+                        InMouse.Icon.sprite = oldSprite;
                         InMouse.ReturnItemToSocket();
+
+                        StartEffect(Color.cyan, 1.1f, 0.5f);
                     }
                 }
-            } 
-
-            if(Input.GetMouseButtonDown(0))
-            {
-                if(Icon.sprite != null && InMouse.Icon.sprite == null)
-                {
-                    SeItemToMouse();
-                }         
-            }                    
+            }                   
         }
+    }
+
+    private void StartEffect(Color flashColor, float targetScale, float duration)
+    {
+        if (isEffectActive) return;
+
+        isEffectActive = true;
+        StartCoroutine(EffectCoroutine(flashColor, targetScale, duration));
+    }
+
+    private IEnumerator EffectCoroutine(Color flashColor, float targetScale, float duration)
+    {
+        Color originalColor = Icon.color;
+        Vector3 originalScale = Icon.transform.localScale;
+        float elapsedTime = 0f;
+
+        while (elapsedTime < duration)
+        {
+            Icon.color = Color.Lerp(originalColor, flashColor, Mathf.PingPong(elapsedTime * 4, 1));
+            Icon.transform.localScale = Vector3.Lerp(originalScale, originalScale * targetScale, elapsedTime / duration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
+        }
+
+        Icon.color = originalColor;
+        Icon.transform.localScale = originalScale;
+        isEffectActive = false;
     }
 }

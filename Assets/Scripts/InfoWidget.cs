@@ -1,22 +1,18 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Zenject;
 
-public class InfoWidget : MonoBehaviour
+public class InfoWidget : Widgets
 {
-    [Inject] EventBus EventBus;
+    [Header("Widget Settings")]
     [SerializeField] Button Button;
     [SerializeField] TextMeshProUGUI Header;
     [SerializeField] TextMeshProUGUI Info;
     GameButton CurrentGameButton;
 
-    void Start()
-    {
-        EventBus.Signal += SignalBox;
-    }
+    void Start() => Subscribe();
 
-    void SignalBox(object Obj)
+    protected override void SignalBox(object Obj)
     {
         switch (Obj)
         {
@@ -41,10 +37,5 @@ public class InfoWidget : MonoBehaviour
         Button.gameObject.SetActive(false);
         Header.text = "";
         Info.text = "";
-    }
-
-    void OnDestroy()
-    {
-        EventBus.Signal -= SignalBox;
     }
 }

@@ -42,16 +42,6 @@ public class GameButton : MonoBehaviour
         }
     }
 
-    public void HideHand(GameObject gameObject)
-    {
-        if(PlayerPrefs.GetInt("Hand") == 0)
-        {
-            gameObject.SetActive(false);
-            PlayerPrefs.SetInt("Hand", 1);
-            PlayerPrefs.Save();
-        }
-    }
-
     public void StartGame()
     {
         if(PlayerPrefs.GetInt("Button" + transform.GetSiblingIndex()) == 1)
