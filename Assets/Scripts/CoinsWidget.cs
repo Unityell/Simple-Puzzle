@@ -22,10 +22,7 @@ public class CoinsWidget : Widgets
                 PlayerPrefs.SetInt("Coins", CoinSignal.Action == EnumCoinAction.Add ? CurrentCoins + CoinSignal.CoinCount : CurrentCoins - CoinSignal.CoinCount);
                 PlayerPrefs.Save();
                 Text.text = PlayerPrefs.GetInt("Coins").ToString();
-                if(PlayerPrefs.GetInt("Coins") == 0)
-                {
-                    HintButton.SetActive(false);
-                }
+                HintButton.SetActive(PlayerPrefs.GetInt("Coins") > 0);
                 break;
             default: break;
         }

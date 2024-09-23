@@ -8,7 +8,6 @@ public class Game : Widgets
     [Inject] AudioManager AudioManager;
     [Header("Widget Settings")]
     [SerializeField] CentralPuzzle CentralPuzzle;
-    [SerializeField] Tutorial Tutorial;
     [SerializeField] GameObject NextButton;
     [SerializeField] GameObject BackToMenuButton;
     [SerializeField] GameObject HintButton;
@@ -25,7 +24,6 @@ public class Game : Widgets
         {
             case StartGameSignal StartGameSignal :
                 PlayerPrefs.Save();
-                HintButton.SetActive(PlayerPrefs.GetInt("Coins") > 0);
                 CentralPuzzle.transform.localScale = Vector3.one;
                 EventBus.Invoke(new TutorialSignal("GamePlayTutorial"));
                 NextButton.gameObject.SetActive(false);
@@ -36,8 +34,8 @@ public class Game : Widgets
                 break;
 
             case EnumSignals.Win :
-                HintButton.SetActive(false);
                 EventBus.Invoke(new CoinSignal(1, EnumCoinAction.Add));
+                HintButton.SetActive(false);
                 BackToMenuButton.SetActive(false);
                 PlayerPrefs.SetInt("Button" + (Number + 1).ToString(), 1);
                 PlayerPrefs.Save();
