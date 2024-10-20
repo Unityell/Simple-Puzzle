@@ -1,11 +1,10 @@
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEditor.Build.Reporting;
 using UnityEditor.Build;
 using System.IO;
 
-namespace YG.Insides.BuildModify
+namespace YG.EditorScr.BuildModify
 {
     public class PostProcessBuild : IPreprocessBuildWithReport
     {
@@ -21,10 +20,11 @@ namespace YG.Insides.BuildModify
         }
 
         [PostProcessBuild]
-        public static void ModifyIndex(BuildTarget target, string pathToBuiltProject)
+        public static void ModifyBuildDo(BuildTarget target, string pathToBuiltProject)
         {
-            ModifyIndexFile.ModifyIndex(pathToBuiltProject);
+            ModifyBuildManager.ModifyIndex(pathToBuiltProject);
             ArchivingBuild.Archiving(pathToBuiltProject);
+            BuildLog.WritingLog(pathToBuiltProject);
         }
     }
 }

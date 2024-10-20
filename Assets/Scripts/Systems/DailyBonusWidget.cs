@@ -7,6 +7,7 @@ public class DailyBonusWidget : Widgets
 {
     [SerializeField] Button[] Buttons;
     [SerializeField] GameObject NextButton;
+    [SerializeField] RectTransform Point;
 
     private const int MaxBonusDays = 7;
     private string LastLoginDateKey = "GameData";
@@ -29,7 +30,7 @@ public class DailyBonusWidget : Widgets
 
             if (bonusProgress >= MaxBonusDays)
             {
-                Widget.SetActive(false);
+                Enable(false);
                 return;
             }
 
@@ -50,6 +51,7 @@ public class DailyBonusWidget : Widgets
             else if (i == bonusProgress)
             {
                 Buttons[i].interactable = true;
+                Point.transform.position = Buttons[i].transform.position;
                 Buttons[i].onClick.RemoveAllListeners();
                 Buttons[i].onClick.AddListener(() => OnBonusButtonClick());
             }
@@ -61,11 +63,11 @@ public class DailyBonusWidget : Widgets
 
         if (bonusProgress >= MaxBonusDays)
         {
-            Widget.SetActive(false);
+            Enable(false);
         }
         else
         {
-            Widget.SetActive(true);
+            Enable(true);
         }
     }
 

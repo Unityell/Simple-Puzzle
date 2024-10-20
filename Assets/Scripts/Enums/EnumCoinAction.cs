@@ -1,4 +1,4 @@
 public enum EnumCoinAction
 {
-    Add, Remove
+    Add, Remove, Set
 }

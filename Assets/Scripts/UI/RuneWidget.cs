@@ -3,9 +3,11 @@ using UnityEngine.UI;
 using YG;
 using TMPro;
 using System.Collections.Generic;
+using Zenject;
 
 public class RuneWidget : Widgets
 {
+    [Inject] GameData GameData;
     [SerializeField] GameObject PredicateWidget;
     [SerializeField] Sprite[] Runes;
     [SerializeField] Button[] Images;
@@ -35,7 +37,7 @@ public class RuneWidget : Widgets
         PredicateWidget.SetActive(false);
         NextButton.SetActive(false);
 
-        if (PlayerPrefs.GetInt("Coins") > 0)
+        if (GameData.Coins > 0)
         {
             Enable(true);
             FillImagesWithRandomRunes();
@@ -46,8 +48,8 @@ public class RuneWidget : Widgets
         else
         {
             Enable(false);
-            var HeaderText = YandexGame.EnvironmentData.language == "ru" ? "Нет очков!" : "No points!";
-            var InfoText = YandexGame.EnvironmentData.language == "ru" ? "Чтобы получить предсказание, вам не хватает очков. Соберите пазл!" : "To receive a prediction, you need more points. Complete the puzzle!";
+            var HeaderText = YandexGame.EnvironmentData.language == "ru" ? "Нет монет предсказания!" : "No fortune coins!";
+            var InfoText = YandexGame.EnvironmentData.language == "ru" ? "Чтобы получить предсказание, вам не хватает монет предсказания. Соберите пазл!" : "To get a fortune, you need fortune coins. Complete the puzzle!";
             EventBus.Invoke(new InfoSignal(HeaderText, InfoText));
         }
     }
@@ -126,6 +128,9 @@ public class RuneWidget : Widgets
         {
             Text.text = predictionsEn[Random.Range(0, predictionsEn.Count)];
         }   
+
+        LayoutRebuilder.ForceRebuildLayoutImmediate(Text.transform as RectTransform);
+
         EventBus.Invoke(new CoinSignal(1, EnumCoinAction.Remove));
     }
 }

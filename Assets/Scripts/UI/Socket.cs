@@ -148,16 +148,32 @@ public class Socket : MonoBehaviour
         Color originalColor = Icon.color;
         Vector3 originalScale = Icon.transform.localScale;
         float elapsedTime = 0f;
+        
+        // Настройка скорости и продолжительности
+        float flashDuration = duration * 0.1f; // Быстрое моргание
+        float springDuration = duration * 0.4f; // Быстрая и короткая пружинящая анимация
 
-        while (elapsedTime < duration)
+        // Мгновенное моргание цветом
+        Icon.color = flashColor;
+        yield return new WaitForSeconds(flashDuration);
+        
+        // Возвращаем цвет обратно
+        Icon.color = originalColor;
+
+        // Пружинистая анимация масштаба
+        while (elapsedTime < springDuration)
         {
-            Icon.color = Color.Lerp(originalColor, flashColor, Mathf.PingPong(elapsedTime * 4, 1));
-            Icon.transform.localScale = Vector3.Lerp(originalScale, originalScale * targetScale, elapsedTime / duration);
+            // Используем экспоненциальное затухание амплитуды для пружинистого эффекта
+            float dampingFactor = Mathf.Exp(-elapsedTime * 6); // Быстрое затухание
+            float oscillation = Mathf.Sin(elapsedTime * Mathf.PI * 6) * dampingFactor;
+            float scaleProgress = 1 + oscillation * (targetScale - 1); // Амплитуда уменьшается со временем
+            
+            Icon.transform.localScale = originalScale * scaleProgress;
             elapsedTime += Time.deltaTime;
             yield return null;
         }
 
-        Icon.color = originalColor;
+        // Возвращаем масштаб обратно
         Icon.transform.localScale = originalScale;
         isEffectActive = false;
     }

@@ -5,6 +5,7 @@ using YG;
 
 public class Game : Widgets
 {
+    [Inject] GameData GameData;
     [Inject] AudioManager AudioManager;
     [Header("Widget Settings")]
     [SerializeField] CentralPuzzle CentralPuzzle;
@@ -27,6 +28,7 @@ public class Game : Widgets
                 CentralPuzzle.transform.localScale = Vector3.one;
                 EventBus.Invoke(new TutorialSignal("GamePlayTutorial"));
                 NextButton.gameObject.SetActive(false);
+                HintButton.SetActive(GameData.Coins >= 1);
                 Enable(true);
                 Number = StartGameSignal.ButtonNumber;
                 CentralPuzzle.Initialization(StartGameSignal.Sprites);

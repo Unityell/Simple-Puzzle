@@ -3,6 +3,7 @@ using UnityEngine;
 public class Hand : MonoBehaviour
 {
     [SerializeField] RectTransform Target;
+    [SerializeField] Vector3 Offset;
 
     void Start()
     {
@@ -17,5 +18,10 @@ public class Hand : MonoBehaviour
             PlayerPrefs.SetInt("Hand", 1);
             PlayerPrefs.Save();
         }
+    }
+
+    void Update()
+    {
+        transform.position = Target.position + Offset;
     }
 }

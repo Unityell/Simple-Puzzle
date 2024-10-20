@@ -9,7 +9,7 @@ public class Menu : Widgets
 
     void Start()
     {
-        Predications.SetActive(PlayerPrefs.GetString("PredicateTutorial") == "Y");
+        Predications.SetActive(PlayerPrefs.GetString("PredicateTutorial") != "Y");
 
         Subscribe();
 

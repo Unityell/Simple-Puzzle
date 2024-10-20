@@ -4,5 +4,9 @@ public enum EnumSignals
     Clear,
     OpenMenu,
     Win,
-    Check
+    Check,
+    LoginError,
+    LoginSucces,
+    UpdateData,
+    Start
 }
