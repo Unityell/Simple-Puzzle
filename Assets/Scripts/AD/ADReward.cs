@@ -8,6 +8,7 @@ public class ADReward : Widgets
 
     public void StartAD()
     {
+        YandexGame.RewardVideoEvent -= AD;
         UnSubscribe();
         YandexGame.RewVideoShow(1);
         YandexGame.RewardVideoEvent += AD;

@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using YG;
 using Zenject;
@@ -5,6 +6,14 @@ using Zenject;
 public class BuyController : MonoBehaviour
 {
     [Inject] EventBus EventBus;
+
+    void Start() => StartCoroutine(Waiting());
+
+    IEnumerator Waiting()
+    {
+        yield return new WaitForSeconds(1);
+        YandexGame.ConsumePurchases();
+    }
 
     private void OnEnable()
     {

@@ -8,20 +8,15 @@ using System.Linq;
 public class PlayFabManager
 {
     [Inject] EventBus EventBus;
-    [Inject] GameData GameData;
+    //[Inject] GameData GameData;
 
     private string PlayFabId;
 
-    public void Login()
+    public void Login(string ID)
     {
         var Request = new LoginWithCustomIDRequest
         {
-            #if !UNITY_EDITOR
-            CustomId = SystemInfo.deviceUniqueIdentifier,
-            #else
-            CustomId = "Test",
-            #endif
-            CreateAccount = true
+            CustomId = ID
         };
         PlayFabClientAPI.LoginWithCustomID(Request, OnSuccess, LoginError);
     }

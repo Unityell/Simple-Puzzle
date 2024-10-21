@@ -24,6 +24,8 @@ public class InfoWidget : Widgets
                    Button.gameObject.SetActive(true); 
                 }
 
+                Button.gameObject.SetActive(InfoSignal.Button); 
+
                 Header.text = InfoSignal.Header;
                 Info.text = InfoSignal.Info;
                 break;

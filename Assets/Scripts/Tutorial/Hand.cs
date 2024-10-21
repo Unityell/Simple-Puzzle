@@ -12,7 +12,7 @@ public class Hand : MonoBehaviour
 
     public void Hide()
     {
-        if(PlayerPrefs.GetInt("Hand") == 0)
+        if(PlayerPrefs.GetInt("Hand", default) == 0)
         {
             gameObject.SetActive(false);
             PlayerPrefs.SetInt("Hand", 1);

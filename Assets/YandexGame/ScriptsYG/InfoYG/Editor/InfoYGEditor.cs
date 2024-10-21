@@ -26,7 +26,7 @@ namespace YG.Insides
             saves_IsActive = DefineSymbols.CheckDefine(define_Saves);
             textMP_IsActive = DefineSymbols.CheckDefine(define_TextMP);
 
-            if (PlayerPrefs.GetInt("RebootUnityDialogIsRequired") == 1)
+            if (PlayerPrefs.GetInt("RebootUnityDialogIsRequired", default) == 1)
             {
                 PlayerPrefs.SetInt("RebootUnityDialogIsRequired", 0);
                 PlayerPrefs.Save();

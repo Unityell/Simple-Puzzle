@@ -1,0 +1,740 @@
+fileFormatVersion: 2
+guid: 6e0c3aac37c45164080d11a36cdd1483
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5976096376531015624
+    second: tiled_runes_white_0
+  - first:
+      213: 1095766316582655058
+    second: tiled_runes_white_1
+  - first:
+      213: 993074697322904196
+    second: tiled_runes_white_2
+  - first:
+      213: -4278027338749306913
+    second: tiled_runes_white_3
+  - first:
+      213: -3615936327306630119
+    second: tiled_runes_white_4
+  - first:
+      213: 5928344174960184041
+    second: tiled_runes_white_5
+  - first:
+      213: 2508800540793732182
+    second: tiled_runes_white_6
+  - first:
+      213: -508914841940419751
+    second: tiled_runes_white_7
+  - first:
+      213: 7632977054765446759
+    second: tiled_runes_white_8
+  - first:
+      213: 4743036035071155630
+    second: tiled_runes_white_9
+  - first:
+      213: -1370416723905214753
+    second: tiled_runes_white_10
+  - first:
+      213: 7102189699954998937
+    second: tiled_runes_white_11
+  - first:
+      213: -5907094843724270448
+    second: tiled_runes_white_12
+  - first:
+      213: -2520037206749678757
+    second: tiled_runes_white_13
+  - first:
+      213: -4339260649036348987
+    second: tiled_runes_white_14
+  - first:
+      213: -2672562753542856343
+    second: tiled_runes_white_15
+  - first:
+      213: 8582367072699347559
+    second: tiled_runes_white_16
+  - first:
+      213: -4619980175594157555
+    second: tiled_runes_white_17
+  - first:
+      213: -339991478910795640
+    second: tiled_runes_white_18
+  - first:
+      213: -3283818494194159143
+    second: tiled_runes_white_19
+  - first:
+      213: -7155392638102976120
+    second: tiled_runes_white_20
+  - first:
+      213: 5056599285147876543
+    second: tiled_runes_white_21
+  - first:
+      213: -8940153602919533878
+    second: tiled_runes_white_22
+  - first:
+      213: 3350688698720738684
+    second: tiled_runes_white_23
+  - first:
+      213: 7212316904644638666
+    second: tiled_runes_white_24
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: tiled_runes_white_0
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 895
+        width: 177
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 838ae5d1204a01da0800000000000000
+      internalID: -5976096376531015624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_1
+      rect:
+        serializedVersion: 2
+        x: 338
+        y: 895
+        width: 239
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2545fb8c8a1f43f00800000000000000
+      internalID: 1095766316582655058
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_2
+      rect:
+        serializedVersion: 2
+        x: 681
+        y: 895
+        width: 162
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 48a3c59fc2c18cd00800000000000000
+      internalID: 993074697322904196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_3
+      rect:
+        serializedVersion: 2
+        x: 1009
+        y: 895
+        width: 117
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd710762dc461a4c0800000000000000
+      internalID: -4278027338749306913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_4
+      rect:
+        serializedVersion: 2
+        x: 1293
+        y: 895
+        width: 159
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91c2570811d91ddc0800000000000000
+      internalID: -3615936327306630119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_5
+      rect:
+        serializedVersion: 2
+        x: 1594
+        y: 938
+        width: 167
+        height: 313
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ea02ce0e95b54250800000000000000
+      internalID: 5928344174960184041
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_6
+      rect:
+        serializedVersion: 2
+        x: 1882
+        y: 896
+        width: 202
+        height: 397
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 65c7156bccc01d220800000000000000
+      internalID: 2508800540793732182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_7
+      rect:
+        serializedVersion: 2
+        x: 2223
+        y: 895
+        width: 130
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 95b9739c5a8ffe8f0800000000000000
+      internalID: -508914841940419751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 457
+        width: 267
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7667008a038cde960800000000000000
+      internalID: 7632977054765446759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_9
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 457
+        width: 159
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ead1b4be426a2d140800000000000000
+      internalID: 4743036035071155630
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_10
+      rect:
+        serializedVersion: 2
+        x: 748
+        y: 457
+        width: 29
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fd60069104d4bfce0800000000000000
+      internalID: -1370416723905214753
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_11
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 596
+        width: 139
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 99e714137eb009260800000000000000
+      internalID: 7102189699954998937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_12
+      rect:
+        serializedVersion: 2
+        x: 1051
+        y: 497
+        width: 139
+        height: 221
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 094f5496988c50ea0800000000000000
+      internalID: -5907094843724270448
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_13
+      rect:
+        serializedVersion: 2
+        x: 1260
+        y: 457
+        width: 225
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b53faee1387070dd0800000000000000
+      internalID: -2520037206749678757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_14
+      rect:
+        serializedVersion: 2
+        x: 1596
+        y: 453
+        width: 164
+        height: 408
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c18b5a1e69d7c3c0800000000000000
+      internalID: -4339260649036348987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_15
+      rect:
+        serializedVersion: 2
+        x: 1847
+        y: 455
+        width: 272
+        height: 403
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9616323e55629ead0800000000000000
+      internalID: -2672562753542856343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_16
+      rect:
+        serializedVersion: 2
+        x: 2215
+        y: 460
+        width: 151
+        height: 394
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 762f04c9161ba1770800000000000000
+      internalID: 8582367072699347559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 19
+        width: 257
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0a0d5c028882efb0800000000000000
+      internalID: -4619980175594157555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_18
+      rect:
+        serializedVersion: 2
+        x: 376
+        y: 18
+        width: 163
+        height: 401
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 880ccd02d8b184bf0800000000000000
+      internalID: -339991478910795640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_19
+      rect:
+        serializedVersion: 2
+        x: 629
+        y: 19
+        width: 267
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d1f2ba5a788d62d0800000000000000
+      internalID: -3283818494194159143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_20
+      rect:
+        serializedVersion: 2
+        x: 934
+        y: 19
+        width: 268
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8894d697e40f2bc90800000000000000
+      internalID: -7155392638102976120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_21
+      rect:
+        serializedVersion: 2
+        x: 1294
+        y: 19
+        width: 157
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fbcbbb24246ac2640800000000000000
+      internalID: 5056599285147876543
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_22
+      rect:
+        serializedVersion: 2
+        x: 1573
+        y: 110
+        width: 210
+        height: 219
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac27d844aa13ee380800000000000000
+      internalID: -8940153602919533878
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_23
+      rect:
+        serializedVersion: 2
+        x: 1849
+        y: 19
+        width: 268
+        height: 400
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c7d5a286e99008e20800000000000000
+      internalID: 3350688698720738684
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tiled_runes_white_24
+      rect:
+        serializedVersion: 2
+        x: 2155
+        y: 30
+        width: 266
+        height: 378
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac773e4230c471460800000000000000
+      internalID: 7212316904644638666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable: {}
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

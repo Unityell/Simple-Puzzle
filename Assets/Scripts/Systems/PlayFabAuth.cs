@@ -15,12 +15,12 @@ public class PlayFabAuth : MonoBehaviour
         if(!YandexGame.auth)
         {
             EventBus.Invoke(EnumSignals.Start);
-            EventBus.Invoke(new CoinSignal(PlayerPrefs.GetInt("Coins"), EnumCoinAction.Set));
+            EventBus.Invoke(new CoinSignal(PlayerPrefs.GetInt("Coins", default), EnumCoinAction.Set));
             return;
         }
 
         EventBus.Subscribe(SignalBox);
-        PlayFabManager.Login();
+        PlayFabManager.Login(YandexGame.playerId);
         GameData.Lang = YandexGame.EnvironmentData.language == "en" ? EnumLanguage.EN : EnumLanguage.RU;
     }
 
@@ -47,9 +47,9 @@ public class PlayFabAuth : MonoBehaviour
                 EventBus.Unsubscribe(SignalBox);
                 break;
             case EnumSignals.LoginError :
-                EventBus.Invoke(new CoinSignal(PlayerPrefs.GetInt("Coins"), EnumCoinAction.Set));
-                EventBus.Invoke(EnumSignals.Start);
                 EventBus.Unsubscribe(SignalBox);
+                EventBus.Invoke(new CoinSignal(PlayerPrefs.GetInt("Coins", default), EnumCoinAction.Set));
+                EventBus.Invoke(EnumSignals.Start);
                 break;
             default: break;
         }

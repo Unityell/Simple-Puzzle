@@ -30,7 +30,7 @@ public class GameButton : MonoBehaviour
             return;
         }
 
-        if(PlayerPrefs.GetInt("Button" + transform.GetSiblingIndex()) == 0)
+        if(PlayerPrefs.GetInt("Button" + transform.GetSiblingIndex(), default) == 0)
         {
             Sprite.color = new Color(0.1f, 0.1f, 0.1f, 1);
             Lock.SetActive(true);
@@ -44,7 +44,7 @@ public class GameButton : MonoBehaviour
 
     public void StartGame()
     {
-        if(PlayerPrefs.GetInt("Button" + transform.GetSiblingIndex()) == 1)
+        if(PlayerPrefs.GetInt("Button" + transform.GetSiblingIndex(), default) == 1)
         {
             var HeaderText = Header.Find(x => x.Name == YandexGame.EnvironmentData.language).Phrase;
             var InfoText = Info.Find(x => x.Name == YandexGame.EnvironmentData.language).Phrase;
