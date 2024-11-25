@@ -16,7 +16,8 @@ public class PlayFabManager
     {
         var Request = new LoginWithCustomIDRequest
         {
-            CustomId = ID
+            CustomId = ID,
+            CreateAccount = true
         };
         PlayFabClientAPI.LoginWithCustomID(Request, OnSuccess, LoginError);
     }
@@ -89,7 +90,15 @@ public class PlayFabManager
             StatisticNames = Keys
         };
 
-        PlayFabClientAPI.GetPlayerStatistics(Request, OnGetPlayerStatisticsSuccess, OnError);
+        if (PlayFabClientAPI.IsClientLoggedIn())
+        {
+            PlayFabClientAPI.GetPlayerStatistics(Request, OnGetPlayerStatisticsSuccess, OnError);
+        }
+        else
+        {
+            EventBus.Invoke(EnumSignals.LoginError);
+            Debug.Log("Not logged in!");
+        }
     }
 
     public void GetLeaderboardAroundPlayer(string StatisticName, int MaxResultsCountAboveBelow)

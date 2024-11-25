@@ -42,7 +42,7 @@ public class Game : Widgets
                 PlayerPrefs.SetInt("Button" + (Number + 1).ToString(), 1);
                 PlayerPrefs.Save();
                 EventBus.Invoke(EnumSignals.Refresh);
-                AudioManager.PlaySound("UwU", null);
+                AudioManager.PlaySound("Yeah", null);
                 StartCoroutine(Win());
                 break;
             default: break;

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scopes: 1
   playerPhotoSize: 0
-  autoGameReadyAPI: 1
+  autoGameReadyAPI: 0
   playerInfoSimulation:
     authorized: 1
     isMobile: 0
     language: ru
     name: Player this
-    uniqueID: 0000
+    uniqueID: 6666
     photo: https://justplaygames.ru/public/icon_player.png
     payingStatus: paying
     serverTime: 1721201231000

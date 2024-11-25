@@ -1,47 +1,64 @@
 using UnityEngine;
 using UnityEngine.UI;
 using YG;
-using System;
+using Zenject;
 
 public class DailyBonusWidget : Widgets
 {
+    [Inject] PlayFabManager PlayFabManager;
     [SerializeField] Button[] Buttons;
     [SerializeField] GameObject NextButton;
     [SerializeField] RectTransform Point;
 
     private const int MaxBonusDays = 7;
-    private string LastLoginDateKey = "GameData";
+    private const int SecondsInDay = 86400000 / 2; 
     private string BonusProgressKey = "GameDataValue";
 
-    private void OnEnable() => YandexGame.GetDataEvent += StartWidget;
-    private void OnDisable() => YandexGame.GetDataEvent -= StartWidget;
-
-    void StartWidget()
+    void Awake()
     {
-        string todayDate = DateTime.Today.ToString("yyyy-MM-dd");
+        EventBus.Subscribe(SignalBox);
+    }
 
-        string savedDate = PlayerPrefs.GetString(LastLoginDateKey, "");
-
-        if (savedDate != todayDate)
+    protected override void SignalBox(object Obj)
+    {
+        switch (Obj)
         {
-            PlayerPrefs.SetString(LastLoginDateKey, todayDate);
-
-            int bonusProgress = PlayerPrefs.GetInt(BonusProgressKey, 0);
-
-            if (bonusProgress >= MaxBonusDays)
-            {
-                Enable(false);
-                return;
-            }
-
-            UpdateBonusButtons();
+            case PlayFab.ClientModels.GetUserDataResult Result:
+                if (Result.Data.ContainsKey("LastData"))
+                {
+                    long lastDataTime = long.Parse(Result.Data["LastData"].Value);
+                    StartWidget(lastDataTime);
+                }
+                else
+                {
+                    StartWidget(0);
+                }
+                break;
+            default: break;
         }
     }
 
-    void UpdateBonusButtons()
+    void StartWidget(long lastData)
     {
-        int bonusProgress = PlayerPrefs.GetInt(BonusProgressKey, 0);
+        long todayDate = YandexGame.ServerTime();
 
+        if (lastData == 0 || (todayDate - lastData) >= SecondsInDay)
+        {
+            int bonusProgress = PlayerPrefs.GetInt(BonusProgressKey, 0);
+
+            if (bonusProgress < MaxBonusDays)
+            {
+                UpdateBonusButtons(bonusProgress);
+            }
+        }
+        else
+        {
+            Enable(false);
+        }
+    }
+
+    void UpdateBonusButtons(int bonusProgress)
+    {
         for (int i = 0; i < Buttons.Length; i++)
         {
             if (i < bonusProgress)
@@ -53,7 +70,7 @@ public class DailyBonusWidget : Widgets
                 Buttons[i].interactable = true;
                 Point.transform.position = Buttons[i].transform.position;
                 Buttons[i].onClick.RemoveAllListeners();
-                Buttons[i].onClick.AddListener(() => OnBonusButtonClick());
+                Buttons[i].onClick.AddListener(() => OnBonusButtonClick(bonusProgress));
             }
             else
             {
@@ -71,7 +88,7 @@ public class DailyBonusWidget : Widgets
         }
     }
 
-    void OnBonusButtonClick()
+    void OnBonusButtonClick(int bonusProgress)
     {
         foreach (var button in Buttons)
         {
@@ -79,10 +96,11 @@ public class DailyBonusWidget : Widgets
         }
 
         NextButton.SetActive(true);
-
-        int bonusProgress = PlayerPrefs.GetInt(BonusProgressKey, 0);
-        bonusProgress++;
+        bonusProgress += 5;
         PlayerPrefs.SetInt(BonusProgressKey, bonusProgress);
+        PlayerPrefs.Save();
+
+        PlayFabManager.SetData(new System.Collections.Generic.Dictionary<string, string>() {{"LastData", YandexGame.ServerTime().ToString()}});
 
         EventBus.Invoke(new CoinSignal(bonusProgress, EnumCoinAction.Add));
     }

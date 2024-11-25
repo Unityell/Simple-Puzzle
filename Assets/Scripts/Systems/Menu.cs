@@ -5,12 +5,9 @@ public class Menu : Widgets
 {
     [Header("Widget Settings")]
     [SerializeField] List<GameButton> GameButtons;
-    [SerializeField] GameObject Predications;
 
     void Start()
     {
-        Predications.SetActive(PlayerPrefs.GetString("PredicateTutorial") != "Y");
-
         Subscribe();
 
         foreach (var item in GameButtons)
@@ -27,11 +24,6 @@ public class Menu : Widgets
         }        
     }
 
-    public void ShowPredicate()
-    {
-        EventBus.Invoke(new TutorialSignal("PredicateTutorial"));
-        Predications.SetActive(true);
-    }
 
     protected override void SignalBox(object Obj)
     {

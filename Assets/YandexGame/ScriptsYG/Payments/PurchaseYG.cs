@@ -55,11 +55,11 @@ namespace YG
                 else textMP.priceValue.text = data.priceValue;
             }
 #endif
-            if (purchaseImageLoad)
-                purchaseImageLoad.Load(data.imageURI);
+            // if (purchaseImageLoad)
+            //     purchaseImageLoad.Load(data.imageURI);
 
-            if (currencyImageLoad && data.currencyImageURL != string.Empty && data.currencyImageURL != null)
-                currencyImageLoad.Load(data.currencyImageURL);
+            // if (currencyImageLoad && data.currencyImageURL != string.Empty && data.currencyImageURL != null)
+            //     currencyImageLoad.Load(data.currencyImageURL);
         }
 
         public void BuyPurchase()

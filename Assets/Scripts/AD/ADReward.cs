@@ -4,15 +4,16 @@ using System.Collections.Generic;
 
 public class ADReward : Widgets
 {
+    [Inject] GameData GameData;
     [Inject] PlayFabManager PlayFabManager;
 
     public void StartAD()
     {
         YandexGame.RewardVideoEvent -= AD;
         UnSubscribe();
+        Subscribe();
         YandexGame.RewVideoShow(1);
         YandexGame.RewardVideoEvent += AD;
-        Subscribe();
     }
 
     protected override void SignalBox(object Obj)
@@ -45,7 +46,7 @@ public class ADReward : Widgets
     {
         if (Number == 1)
         {
-            if(YandexGame.auth)
+            if(GameData.Auth)
             {
                 PlayFabManager.GetPlayerStatistics(new List<string> { "AD" });
             }
